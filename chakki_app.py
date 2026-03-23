@@ -1,14 +1,16 @@
 import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, db
-import pandas as pd
+import json
 
+# Firebase connection using Streamlit Secrets
 if not firebase_admin._apps:
-    cred = credentials.Certificate("abu-chakki-app-firebase-adminsdk-fbsvc-8efe79a6bb.json")
+    # ییہاں ہم فائل کے بجائے اسٹریم لٹ کے سیکرٹس استعمال کر رہے ہیں
+    key_dict = json.loads(st.secrets["firebase"]["key"])
+    cred = credentials.Certificate(key_dict)
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://abu-chakki-app-default-rtdb.firebaseio.com/' 
+        'databaseURL': 'https://abu-chakki-app-default-rtdb.firebaseio.com/'
     })
-
 st.set_page_config(page_title="Abu Ji ki Chakki", layout="wide")
 st.title("🌾 ابو جی کی اسمارٹ چکی")
 
