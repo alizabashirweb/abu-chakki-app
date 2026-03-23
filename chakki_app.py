@@ -4,7 +4,7 @@ from firebase_admin import credentials, db
 import pandas as pd
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate(r"C:\Users\User\Downloads\abu-chakki-app-firebase-adminsdk-fbsvc-8efe79a6bb.json")
+    cred = credentials.Certificate("abu-chakki-app-firebase-adminsdk-fbsvc-8efe79a6bb.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://abu-chakki-app-default-rtdb.firebaseio.com/' 
     })
