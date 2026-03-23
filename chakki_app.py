@@ -62,13 +62,15 @@ from datetime import datetime
 # --- 1. Firebase Connection (Using Secrets) ---
 if not firebase_admin._apps:
     try:
-        # یہاں ہم اسٹریم لٹ کے Secrets سے 'firebase' والا پورا حصہ اٹھا رہے ہیں
+     if not firebase_admin._apps:
+    try:
+        # یہ لائن اسٹریم لٹ کے نئے فارمیٹ کے لیے ہے
         cred = credentials.Certificate(dict(st.secrets["firebase"]))
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://abu-chakki-app-default-rtdb.firebaseio.com/'
         })
     except Exception as e:
-        st.error(f"کنکشن میں مسئلہ ہے: {e}")
+        st.error(f"ایرر: {e}")
 
 # --- 2. Page Configuration ---
 st.set_page_config(page_title="Abu Ji ki Smart Chakki", layout="wide")
