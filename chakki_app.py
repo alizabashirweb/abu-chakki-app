@@ -1,22 +1,7 @@
-# import streamlit as st
-# import firebase_admin
-# from firebase_admin import credentials, db
-# from datetime import datetime
-
-# # --- 1. Firebase Connection (Using Secrets) ---
-# if not firebase_admin._apps:
-#     try:
-#         # Secrets se data dictionary format mein lena
-#         firebase_info = dict(st.secrets["firebase"])
-#         cred = credentials.Certificate(firebase_info)
-#         firebase_admin.initialize_app(cred, {
-#             'databaseURL': 'https://abu-chakki-app-default-rtdb.firebaseio.com/'
-#         })
-#     except Exception as e:
-#         st.error(f"کنکشن میں مسئلہ ہے: {e}")
 import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, db
+from datetime import datetime
 import json
 
 # Firebase connection setup
